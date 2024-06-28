@@ -1,0 +1,11 @@
+{
+  "translation": {
+    "mobileRequired": "Please, make sure to access from mobile.",
+    "button.switch.lang.spanish": "Spanish",
+    "button.switch.lang.english": "English",
+    "button.home.order": "View menu",
+    "button.home.request": "Need help",
+    "button.home.request.success.tittle": "Request created",
+    "button.home.requests.success.description": "Our staff will be to take note as soon as possible. Thanks"
+  }
+}
