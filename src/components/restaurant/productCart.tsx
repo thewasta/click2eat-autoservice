@@ -2,8 +2,7 @@ import {LazyLoadImage} from 'react-lazy-load-image-component';
 import {Button} from '../ui/button.tsx';
 import {useDispatch} from 'react-redux';
 import {addToCart} from '../../store/cart/slice.ts';
-import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "../ui/carousel.tsx";
-import {Card, CardContent} from "../ui/card.tsx";
+import {Carousel, CarouselContent, CarouselItem} from "../ui/carousel.tsx";
 
 const ProductCart = ({product}) => {
     const {image, id, name,price} = product;
