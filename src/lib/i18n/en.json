@@ -1,6 +1,8 @@
 {
   "translation": {
     "mobileRequired": "Please, make sure to access from mobile.",
+    "home.error.restaurant": "Please scan the QR of your table to view the menu",
+    "home.button.go_restaurant": "Go example restaurant",
     "button.switch.lang.spanish": "Spanish",
     "button.switch.lang.english": "English",
     "button.home.order": "View menu",

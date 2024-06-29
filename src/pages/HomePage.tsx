@@ -36,9 +36,9 @@ const HomePage = () => {
                     </DropdownMenuContent>
                 </DropdownMenu>
             </header>
-            <section className={'flex justify-center mt-4'}>
-                <h1 className={'font-bold text-black tracking-widest'}>
-                    Click2Eat
+            <section className={'flex flex-col p-6 items-center justify-center mt-4'}>
+                <h1 className={'font-bold text-center text-2xl tracking-widest'}>
+                    Click<span className={'text-primary'}>2Eat</span>
                 </h1>
                 <p>
                     {t('home.error.restaurant')}

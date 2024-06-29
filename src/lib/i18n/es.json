@@ -2,6 +2,7 @@
   "translation": {
     "mobileRequired": "Por favor, accede desde un dispositivo móvil",
     "home.error.restaurant": "Por favor, escanea el QR de tu mesa para poder visualizar el menú",
+    "home.button.go_restaurant": "Ir a restaurante ejemplo",
     "button.switch.lang.spanish": "Español",
     "button.switch.lang.english": "Inglés",
     "button.home.order": "Ver menú",
