@@ -1,5 +1,5 @@
 export default [
     {
-        ignores: ["src/components"]
+        ignores: ["src/components"],
     }
 ]

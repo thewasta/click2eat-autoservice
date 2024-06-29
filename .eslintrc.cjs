@@ -13,6 +13,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     plugins: ['react-refresh'],
     rules: {
+        'no-unused-vars': 'warn',
         "quotes": ["warn", "single"],
         "no-console": ["warn"],
         'react-refresh/only-export-components': [
