@@ -9,22 +9,33 @@ interface SliceInitialState {
     items: ProductCart[]
 }
 
+export type ProductReduxState = {
+    id: number,
+    quantity: number,
+    name: string,
+    image: string,
+    price: number
+}
+
 const localStorageKeyName = '__click2eat___cart__items';
-const initialState: SliceInitialState = {
-    items: localStorage.getItem(localStorageKeyName) ? JSON.parse(localStorage.getItem(localStorageKeyName)) : []
-};
+
+const initialState: SliceInitialState = (() => {
+    const persisted = sessionStorage.getItem(localStorageKeyName);
+    if (persisted && persisted !== '') {
+        return {
+            items: JSON.parse(persisted)
+        }
+    }
+    return {
+        items: []
+    };
+})();
 
 const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addToCart: (state, action: PayloadAction<{
-            id: number,
-            quantity: number,
-            name: string,
-            image: string,
-            price: number
-        }>) => {
+        addToCart: (state, action: PayloadAction<ProductReduxState>) => {
             const {id, quantity} = action.payload;
             const productIndex = state.items.findIndex(item => item.id === id);
             if (productIndex >= 0) {
@@ -33,7 +44,7 @@ const cartSlice = createSlice({
                 state.items.push({...action.payload});
             }
 
-            localStorage.setItem(localStorageKeyName, JSON.stringify(state.items));
+            sessionStorage.setItem(localStorageKeyName, JSON.stringify(state.items));
         },
         updateItemQuantity: (state, action: PayloadAction<{ id: number, quantity: number }>) => {
             const {id, quantity} = action.payload;

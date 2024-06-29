@@ -6,6 +6,9 @@
     "button.home.order": "View menu",
     "button.home.request": "Need help",
     "button.home.request.success.tittle": "Request created",
-    "button.home.requests.success.description": "Our staff will be to take note as soon as possible. Thanks"
+    "button.home.requests.success.description": "Our staff will be to take note as soon as possible. Thanks",
+    "product.add": "Add",
+    "cart.title": "My order",
+    "cart.send_order": "Send order"
   }
 }

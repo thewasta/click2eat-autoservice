@@ -1,12 +1,12 @@
-import {Button} from '../components/ui/button.tsx';
+import {Button} from '@/components/ui/button.tsx';
 import {useTranslation} from 'react-i18next';
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger
-} from '../components/ui/dropdown-menu.tsx';
-import World from '../components/icons/World.tsx';
+} from '@/components/ui/dropdown-menu.tsx';
+import World from '@/components/icons/World.tsx';
 
 const HomePage = () => {
     const {t, i18n: {changeLanguage}} = useTranslation();

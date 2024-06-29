@@ -1,12 +1,16 @@
 import {LazyLoadImage} from 'react-lazy-load-image-component';
-import {Button} from '../ui/button.tsx';
-import {useDispatch} from 'react-redux';
-import {addToCart} from '../../store/cart/slice.ts';
-import {Carousel, CarouselContent, CarouselItem} from "../ui/carousel.tsx";
+import {Button} from '@/components/ui/button.tsx';
+import {addToCart} from '@/store/cart/slice.ts';
+import {useTranslation} from "react-i18next";
+import {Product} from "@/lib/mock/product.ts";
+import {useAppDispatch} from "@/lib/hooks/useStore.tsx";
+import {Card, CardContent, CardFooter} from "@/components/ui/card.tsx";
+import {ShoppingCartPlus} from "@/components/icons/ShoppingCartPlus.tsx";
 
-const ProductCart = ({product}) => {
-    const {image, id, name,price} = product;
-    const dispatch = useDispatch();
+const ProductCart = ({product}: { product: Product }) => {
+    const {image, id, name, price} = product;
+    const dispatch = useAppDispatch();
+    const {t} = useTranslation();
     const handleAddCart = () => {
         dispatch(addToCart({
             id,
@@ -17,29 +21,23 @@ const ProductCart = ({product}) => {
         }));
     };
     return (
-        <div className={'flex flex-col items-center text-ellipsis'}>
-            <Carousel opts={{
-                loop: true
-            }}>
-                <CarouselContent>
-                    <CarouselItem>
-                        <LazyLoadImage src={image}
-                                       className={'size-fit rounded-md justify-items-center'}/>
-                    </CarouselItem>
-                </CarouselContent>
-            </Carousel>
-            <h4 className='font-light capitalize'>
-                {name}
-            </h4>
-            <div className={'flex items-center gap-2'}>
+        <Card>
+            <CardContent className={'p-2'}>
+                <div className={'flex flex-col items-center'}>
+                    <LazyLoadImage src={image}
+                                   className={'size-fit rounded-md justify-items-center w-full'}/>
+                    <h4 className='self-start font-light capitalize truncate w-3/4 text-center'>
+                        {name}
+                    </h4>
+                    <span>{price} €</span>
+                </div>
+            </CardContent>
+            <CardFooter className={'justify-center'}>
                 <Button onClick={handleAddCart}>
-                    Añadir
+                    <ShoppingCartPlus/> {t('product.add')}
                 </Button>
-                <span>
-                {price}€
-            </span>
-            </div>
-        </div>
+            </CardFooter>
+        </Card>
     );
 };
 

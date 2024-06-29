@@ -7,6 +7,9 @@
     "button.home.order": "Ver menú",
     "button.home.request": "Necesito ayuda",
     "button.home.request.success.tittle": "Solicitud creada",
-    "button.home.requests.success.description": "Nuestro personal se acercará a atenderte lo antes posibles. Muchas gracias"
+    "button.home.requests.success.description": "Nuestro personal se acercará a atenderte lo antes posibles. Muchas gracias",
+    "product.add": "Añadir",
+    "cart.title": "Mi pedido",
+    "cart.send_order": "Enviar pedido"
   }
 }

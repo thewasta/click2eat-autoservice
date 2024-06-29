@@ -1,10 +1,10 @@
-import {Button} from '../ui/button.tsx';
-import {useDispatch} from 'react-redux';
-import {updateItemQuantity} from '../../store/cart/slice.ts';
+import {Button} from '@/components/ui/button.tsx';
+import {ProductReduxState, updateItemQuantity} from '@/store/cart/slice.ts';
+import {useAppDispatch} from "@/lib/hooks/useStore.tsx";
 
-const CartItem = ({item}) => {
+const CartItem = ({item}: { item: ProductReduxState }) => {
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const handleAddQuantity = () => {
         dispatch(updateItemQuantity({
             id: item.id,
@@ -23,6 +23,7 @@ const CartItem = ({item}) => {
             <img
                 alt={item.name}
                 src={item.image}
+                className={'w-[100px]'}
             />
             <div className={'flex flex-col justify-center items-center w-full'}>
                 <h3 className={'font-light text-sm text-left'}>

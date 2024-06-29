@@ -1,9 +1,9 @@
 import {Link, useParams} from 'react-router-dom';
-import {Button} from '../components/ui/button.tsx';
+import {Button} from '@/components/ui/button.tsx';
 import {toast} from 'sonner';
 import {useTranslation} from 'react-i18next';
 
-const RestaurantPage = () => {
+const RestaurantHomePage = () => {
     const {id} = useParams();
 
     const {t} = useTranslation();
@@ -44,4 +44,4 @@ const RestaurantPage = () => {
     );
 };
 
-export default RestaurantPage;
+export default RestaurantHomePage;
