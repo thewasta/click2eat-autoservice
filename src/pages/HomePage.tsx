@@ -7,6 +7,7 @@ import {
     DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu.tsx';
 import World from '@/components/icons/World.tsx';
+import {Link} from "react-router-dom";
 
 const HomePage = () => {
     const {t, i18n: {changeLanguage}} = useTranslation();
@@ -42,6 +43,11 @@ const HomePage = () => {
                 <p>
                     {t('home.error.restaurant')}
                 </p>
+                <Button className={'w-fit'} asChild>
+                    <Link to={'/example-restaurant'}>
+                        {t('home.button.go_restaurant')}
+                    </Link>
+                </Button>
             </section>
         </>
     );
