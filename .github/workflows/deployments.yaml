@@ -1,0 +1,24 @@
+name: NextJS CI
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+  push:
+    branches:
+      - main
+      - dev
+    tags-ignore:
+      - '**'
+  workflow_dispatch:
+jobs:
+  notification_start:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify start action
+        uses: rjstone/discord-webhook-notify@v1
+        with:
+          severity: info
+          color: '#0059ff'
+          details: New PUSH to the repository
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
