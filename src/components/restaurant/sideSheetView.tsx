@@ -8,7 +8,16 @@ import {toast} from "sonner";
 
 const SideSheetView = () => {
     const cart = useAppSelector(state => state.cart);
+    const getTotal = () => {
+        return Math.round(
+            cart.items.reduce(
+                (next, current) => next + current.price * current.quantity,
+                0
+            ) * 100
+        ) / 100;
+    }
     const {t} = useTranslation();
+
     return (
         <SheetContent className={'px-2'}>
             <SheetHeader>
@@ -16,7 +25,7 @@ const SideSheetView = () => {
                     {t('cart.title')}
                 </SheetTitle>
             </SheetHeader>
-            <div className={'h-full grid grid-rows-[1fr_60px]'}>
+            <div className={'h-full grid grid-rows-[1fr_100px]'}>
                 <ScrollArea className={'w-full mb-7'}>
                     <div className={'flex flex-col gap-4'}>
                         {
@@ -26,18 +35,23 @@ const SideSheetView = () => {
                         }
                     </div>
                 </ScrollArea>
-                <div className={'flex justify-between'}>
-                    <Button onClick={() => {
-                        toast(t('button.home.request.success.tittle'), {
-                            description: t('button.home.requests.success.description'),
-                        });
-                    }}>
-                        {t('button.home.request')}
-                    </Button>
-                    <Button>
-                        {t('cart.send_order')}
-                    </Button>
-                </div>
+                <section className={'flex flex-col gap-3'}>
+                    <div>
+                        <span className={'font-bold'}>TOTAL</span>: {getTotal()}€
+                    </div>
+                    <div className={'flex justify-between'}>
+                        <Button onClick={() => {
+                            toast(t('button.home.request.success.tittle'), {
+                                description: t('button.home.requests.success.description'),
+                            });
+                        }}>
+                            {t('button.home.request')}
+                        </Button>
+                        <Button>
+                            {t('cart.send_order')}
+                        </Button>
+                    </div>
+                </section>
             </div>
         </SheetContent>
     );

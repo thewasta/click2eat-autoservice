@@ -8,14 +8,16 @@ const CartItem = ({item}: { item: ProductReduxState }) => {
     const handleAddQuantity = () => {
         dispatch(updateItemQuantity({
             id: item.id,
-            quantity: item.quantity + 1
+            quantity: item.quantity + 1,
+            price: item.price
         }));
     };
 
     const handleRemoveQuantity = () => {
         dispatch(updateItemQuantity({
             id: item.id,
-            quantity: item.quantity - 1
+            quantity: item.quantity - 1,
+            price: item.price
         }));
     };
     return (

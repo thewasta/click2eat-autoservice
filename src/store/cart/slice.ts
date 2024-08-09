@@ -3,6 +3,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 interface ProductCart {
     id: number;
     quantity: number;
+    price: number;
 }
 
 interface SliceInitialState {
@@ -46,7 +47,7 @@ const cartSlice = createSlice({
 
             sessionStorage.setItem(localStorageKeyName, JSON.stringify(state.items));
         },
-        updateItemQuantity: (state, action: PayloadAction<{ id: number, quantity: number }>) => {
+        updateItemQuantity: (state, action: PayloadAction<ProductCart>) => {
             const {id, quantity} = action.payload;
             const indexItem = state.items.findIndex(item => item.id === id);
             if (indexItem >= 0 && quantity > 0) {
